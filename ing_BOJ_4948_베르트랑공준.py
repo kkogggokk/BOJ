@@ -9,28 +9,27 @@
 import sys 
 input = sys.stdin.readline
 
-def is_prime_num(num):
-    if num > 1 :
-        for i in range(2, int(num ** 0.5)+1):
-            if num % i == 0 :
-                return False
-        return True
-    else :
-        return False
+prime_num = []
+for i in range(2, 123456*2):    # 전체 범위에서 소수를 먼저 구한다. 
+    cnt = 0 
+    for p in range(2, int(i**0.5)+1):
+        if i % p == 0 : # 배수인 경우 
+            cnt += 1 
+            break 
+    if cnt ==  0:       # 소수인 경우
+        prime_num.append(i)
 
 while True : # 0입력 받으면 종료 
     n = int(input())
-    result = []
+    result = 0
 
-    if n == 0 : 
+    if n == 0 : # 0이 들어오면 프로그램 종료 
         break
 
-    for num in range(n+1, 2*n+1):
-        if is_prime_num(num):
-            result.append(num)
-            
-    print(len(result))
-        
+    for i in prime_num:         # 미리 구한 소수에서 n범위에 해당하는 부분만 cnt 갯수를 센다. 
+        if n < i <= 2*n:        
+            result += 1 
+    print(result)
 
 
 
