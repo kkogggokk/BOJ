@@ -6,6 +6,7 @@
 
 '''
 
+from cgi import test
 import sys 
 input = sys.stdin.readline
 
@@ -33,4 +34,6 @@ while True : # 0입력 받으면 종료
 
 
 
+
+import sys 
 
